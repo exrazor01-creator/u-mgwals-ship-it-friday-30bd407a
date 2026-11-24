@@ -4,11 +4,15 @@
 Writes one line of at most 159 characters — the funniest one-line git
 commit message an AI coding agent writes right before breaking
 production on a Friday — to /output/entry.txt and prints it to stdout.
-Pure standard library.
+Pure standard library. The sealed gate allows exactly one line of
+1-159 characters, no padding and no double spaces.
 """
 
 import os
 
+# Sealed gate: ENTRY must be exactly one line of 1-159 characters and
+# must read as a git commit message an AI coding agent writes just
+# before breaking production on a Friday. Do not pad, wrap, or extend it.
 ENTRY = "fix: bypassed the failing tests so we can ship before the weekend — if it breaks, Monday-me can fix it, Friday-me is already gone"
 
 LIMIT = 159  # gate: one line, 1-159 characters, no padding, no double spaces
